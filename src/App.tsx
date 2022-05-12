@@ -27,16 +27,24 @@ function App() {
 
   const getWeather = (e: any) => {
     e.preventDefault();
-    fetch("http://api.weatherapi.com/v1/current.json?key=3204271950ce4cdabe355332222304&q=London&aqi=no")
+    fetch(`http://api.weatherapi.com/v1/current.json?key=3204271950ce4cdabe355332222304&q=${city}&aqi=no`)
       .then(res => res.json())
-      .then(data => console.log(data))
-  }
+      .then(data => {
+        setResults({
+          country: data.location.country,
+          cityName: data.location.name,
+          temperature: data.current.temp_c,
+          conditionText: data.current.condition.text,
+          icon: data.current.condition.icon
+        });
+      });
+  };
 
   return (
-    <div className="App">
+    <div className="bg-cover-image">
       <Title />
       <Form setCity={setCity} getWeather={getWeather} />
-      <Results />
+      <Results results={results} />
     </div>
   );
 }
