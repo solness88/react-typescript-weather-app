@@ -1,6 +1,6 @@
 const Title = () => {
   return (
-    <div className="text-3xl font-serif">ウェザーリポート</div>
+    <div className="flex justify-center text-6xl font-sans-serif mb-10">世界の天気検索</div>
   );
 };
 

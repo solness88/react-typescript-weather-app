@@ -41,10 +41,14 @@ function App() {
   };
 
   return (
-    <div className="bg-cover-image">
-      <Title />
-      <Form setCity={setCity} getWeather={getWeather} />
-      <Results results={results} />
+    <div className="w-full h-screen bg-cover bg-center bg-cover-image">
+      <div className="h-screen w-screen flex justify-center items-center flex-col">
+        <div className="bg-slate-200 bg-opacity-75 rounded-3xl p-12 h-1/2 w-1/2">
+          <Title />
+          <Form setCity={setCity} getWeather={getWeather} />
+          <Results results={results} />
+        </div>
+      </div>
     </div>
   );
 }
